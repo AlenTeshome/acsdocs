@@ -1,0 +1,119 @@
+ @use '../abstracts' as *;
+
+body.node-type--podcast{
+
+    .podcast-detail{
+        
+        display: flex;
+        flex-direction: column;
+        gap: 2em;
+
+        .view-podcast{
+            .view-content{
+                .podcast-item.views-row{
+                    .podcast-image.image{
+
+                    }
+
+                    .podcast-file{
+                        .field--name-field-media-audio-file{
+                            .field__item{
+                                audio{
+                                    width: 100%;
+                                    background: #eee;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+
+    .main-content{
+        padding-top: 3em;
+
+        .field--name-field-issue-location{
+            display: flex;
+            gap: 1em;
+            align-items: center;
+
+            .field__label{
+                font-weight: 600;
+                font-size: .9rem;
+            }
+
+            .field__item{
+
+            }
+        }
+    }
+
+    .side-content{
+        padding-top: 3em;
+        h2.block__title {
+            text-align: center;
+        }
+    }
+
+    .view-podcast.other-podcasts{
+
+        .view-content{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2em;
+            justify-content: center;
+
+            .podcast-items.views-row{
+                    width: 40%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: .5em;
+
+                    .podcast-image.image{
+                        img{
+                            border-radius: .2em;
+                        }
+                    }
+
+                    .podcast-title{
+                        a{
+                            font-weight: normal;
+                        }
+                    }
+
+            }
+
+        }
+
+    }
+
+    .block-views-blockstory-block-4,.block-field-blocknodepodcastbody{
+        h2.block__title{
+            font-size: 1.15rem;
+            color: var(--bs-heading-color);
+            text-align: left;
+            margin-bottom: 1em;
+        }
+    }
+
+    .field--type-entity-reference{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2em;
+
+        .field__item{
+            font-size: .85rem;
+            padding: .5em .75em;
+            background: var(--bs-gray-300);
+            border-radius: .2em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            line-height: 1;
+        }
+
+    }
+ 
+}

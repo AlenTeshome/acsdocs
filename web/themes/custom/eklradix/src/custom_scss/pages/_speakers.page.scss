@@ -1,0 +1,121 @@
+ @use '../abstracts' as *;
+
+/* ================================
+   SPEAKERS LIST
+================================ */
+
+.view-speakers{
+  padding: 3em 0;
+
+.view-content {
+  display: grid;
+  gap: 2rem;
+
+  // Mobile: 1 column
+  grid-template-columns: 1fr;
+
+  @media (min-width: 768px) {
+    // Medium screens: 2 columns
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1200px) {
+    // Large screens: 3 columns
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ================================
+   SPEAKER CARD
+================================ */
+
+.speaker-row {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  transition: all 0.3s ease;
+
+  @include animate-on-scroll;
+
+  &:hover {
+    transform: translateY(-6px);
+  }
+}
+
+/* ================================
+   SPEAKER PHOTO
+================================ */
+
+.speaker-photo {
+  margin-bottom: 1rem;
+
+  img {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto;
+
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid rgba(0, 0, 0, 0.05);
+
+    transition: transform 0.3s ease;
+  }
+}
+
+.speaker-row:hover .speaker-photo img {
+  transform: scale(1.05);
+}
+
+/* ================================
+   SPEAKER NAME
+================================ */
+
+.speaker-name {
+  font-weight: 700;
+  font-size: 1.1rem;
+  line-height: 1.3;
+  color: #111;
+}
+
+/* ================================
+   SPEAKER POSITION
+================================ */
+
+.speaker-position {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+/* ================================
+   EVENT META (DATE + WEBINAR)
+================================ */
+
+.thedate,
+.thewebinar {
+  font-size: 0.85rem;
+  color: #777;
+}
+
+.thedate {
+  margin-top: 0.75rem;
+
+  time {
+    font-weight: 600;
+    color: #333;
+  }
+}
+
+.thewebinar {
+  font-style: italic;
+  margin-top: 0.25rem;
+}
+
+}

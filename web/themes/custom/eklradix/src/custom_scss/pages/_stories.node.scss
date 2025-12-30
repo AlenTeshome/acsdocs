@@ -1,0 +1,24 @@
+ @use '../abstracts' as *;
+
+body.node-type--article{
+
+    .storydetails.side-content{
+        display: flex;
+        flex-direction: column;
+        gap: 2.5em;
+
+        .field--item{
+            .field__label{
+                @include list-item-title;
+                font-size: .8rem;
+                color: var(--bs-gray-500);
+            }
+
+            .field__item{
+                font-size: .8rem;
+                color: var(--bs-gray-700);
+            }
+        }
+    }
+
+}

@@ -1,0 +1,43 @@
+ @use '../abstracts' as *;
+
+body.node-type--publication{
+
+    .publicationseriesblock{
+        margin: 3em 0;
+    }
+
+    .publication-detail.main-content{
+        padding: 0 3em;
+    }
+
+    .publication-cover.main-content{
+        padding: 0 0 0 3em;
+        img{
+            width: 100%;
+        }
+    }
+
+    .field.field--name-body{
+        padding-top: 2em;
+    }
+
+    .publicationlink{
+        .view-content{
+            .views-row{
+                .publication-download{
+                    .publication-link{
+                        display: flex;
+                        justify-content: start;
+                        padding: 0 0 1em 0;
+
+                        a{
+                            @include read-more-link;
+                            color: var(--clr-primary-300);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

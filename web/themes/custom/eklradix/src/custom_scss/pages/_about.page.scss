@@ -1,0 +1,59 @@
+ @use '../abstracts' as *;
+
+
+
+.node-9.node-type--landing-page{
+    .field--name-body{
+        padding: 3em;
+        font-size: 1.25rem;
+        line-height: 1.4;
+    }
+
+    .missionvision{
+        background: var(--clr-bg-400);
+        padding: 3em 0;
+    }
+
+    .value.proposition.stages{
+        padding: 3em 0;
+        background: var(--clr-adifdark-100);
+    }
+}
+
+
+
+.layout-builder-form{
+    position: relative;
+    z-index: 20;  
+}
+
+.view-vision-mission-objective{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+
+    .view-content{
+        display: flex;
+        gap: 2em;
+
+        .mvo-row.views-row{
+            background: var(--clr-bg-300);
+            padding: 1.5em;
+            flex: 1 1 50%;
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+
+                .mvo-title{
+                    text-transform: none;
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                }
+
+                .mvo-text{
+                    font-size: .85rem;
+                }
+        }
+    }
+}

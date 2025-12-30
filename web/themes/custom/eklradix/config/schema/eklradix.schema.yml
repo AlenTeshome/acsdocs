@@ -1,0 +1,5 @@
+# Schema for the configuration files of the eklradix theme.
+
+eklradix.settings:
+  type: theme_settings
+  label: 'eklradix settings'

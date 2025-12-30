@@ -1,0 +1,98 @@
+/**
+ -----------------------------------------------------------------------------
+ This file contains very basic styles.
+ -----------------------------------------------------------------------------
+*/
+@use '../abstracts' as *;
+
+body {
+  margin: 0 0 0 0;
+  font-family: var(--body-font) !important;
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+#main-wrapper
+{
+  min-height: 100vh;
+}
+a {
+  text-decoration: none;
+  color: var(--clr-primary-300);
+
+  &:hover {
+    color: var(--clr-secondary-300);
+    text-decoration: none;
+  }
+}
+
+h2 strong{
+}
+
+.section-content {
+  padding: 3.6875em 0;
+}
+
+@media (min-width: 62.5rem) {
+
+  .section-content {
+    padding: 4.375em 0;
+  }
+}
+
+
+.gradient-button{
+  a{
+    @include gradient-button;
+  }
+}
+
+.js .dropbutton-widget .dropbutton{
+  overflow: visible !important;
+}
+
+
+.view-filters {
+  form {
+    display: flex;
+    gap: 1em;
+    justify-content: baseline;
+
+    >div {
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      gap: 1em;
+      margin: 0;
+    }
+
+    label {
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-size: .85rem;
+    }
+
+    input.form-date{
+      border-radius: 0;
+      margin: 0;
+    }
+
+    input.form-text {
+      border-radius: 0;
+      width: 350px;
+      margin: 0;
+    }
+
+
+    input.button {
+      margin: 0;
+    }
+  }
+}
+
+body:not(.user-logged-in){
+  .operation{
+    display: none;
+  }
+}

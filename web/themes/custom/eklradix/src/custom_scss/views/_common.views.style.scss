@@ -1,0 +1,65 @@
+@use '../abstracts' as *;
+              
+.herosection{
+    .row{
+        margin: 0;
+        *{
+            padding: 0;
+        }
+    }
+}
+
+.view-hero-image{
+    position: relative;
+
+     .view-content {
+        .hero-image-row.views-row {
+        position: relative; // required for overlap positioning
+
+            
+        
+        .hero-image {
+            position: relative; // required for overlap positioning
+            z-index: 1;
+            &::after {
+                content: "";
+                position: absolute;
+                inset: 0;               // covers the entire image area
+                background: linear-gradient(
+                    rgba(0, 0, 0, 0.6),
+                    rgba(0, 0, 0, 0.35)
+                ); // subtle black overlay
+                pointer-events: none;   // ensures it doesn't block clicks
+                z-index: 1;
+            }
+
+            img {
+            width: 100%;
+            height: auto;
+            display: block;
+            }
+        }
+
+            .hero-title {
+                z-index: 2;
+                position: absolute;
+                top: 90%;
+                left: 0;
+                width: 60%;
+                transform: translateY(-90%); // vertically center over image
+                display: flex;
+                flex-direction: column;
+                gap: 2rem; // spacing between items
+                padding: 3rem;
+                color: var(--clr-bg-300); // recommended (text over image)
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); // improves readability
+                font-size: 3rem;
+                font-weight: bold;
+                letter-spacing: -2px;
+                color: var(--clr-bg-300);
+                line-height: 1.2;
+            }
+        
+        }
+  }
+}

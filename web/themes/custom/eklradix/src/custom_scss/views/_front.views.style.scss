@@ -1,0 +1,664 @@
+@use '../abstracts' as *;
+
+.view-front-page-banner {
+    //height: 100vh;    // exactly full screen height
+    //overflow: hidden; // prevents scrollbars if inner elements overflow
+    position: relative;
+
+    #my-text-source{
+        display: none;
+    }
+
+    .typedarea{
+        min-height: 7em;
+
+        .typed-cursor {
+            opacity: 1;
+            line-height: 1.2;
+            font-size: 2rem;
+        }
+    }
+
+  .view-content {
+    .banner-row.views-row {
+      position: relative; // required for overlap positioning
+
+        
+      
+      .banner-image {
+        position: relative; // required for overlap positioning
+        z-index: 1;
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;               // covers the entire image area
+            background: linear-gradient(
+                rgba(0, 0, 0, 0.6),
+                rgba(0, 0, 0, 0.35)
+            ); // subtle black overlay
+            pointer-events: none;   // ensures it doesn't block clicks
+            z-index: 1;
+        }
+
+        img {
+          width: 100%;
+          height: auto;
+          display: block;
+        }
+      }
+
+      .banner-detail {
+        z-index: 2;
+        position: absolute;
+        top: 45%;
+        left: 0;
+        width: 60%;
+        transform: translateY(-40%); // vertically center over image
+        display: flex;
+        flex-direction: column;
+        gap: 2rem; // spacing between items
+        padding: 3rem;
+        color: var(--clr-bg-300); // recommended (text over image)
+        
+        // Optional: add background overlay
+        // background: rgba(0, 0, 0, 0.4);
+        // border-radius: 0.5rem;
+
+        .banner-title {
+          font-size: 3rem;
+          font-weight: bold;
+          letter-spacing: -2px;
+          color: var(--clr-bg-300);
+          line-height: 1.2;
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); // improves readability
+                
+        }
+
+         .banner-sub-title {
+          font-size: 3rem;
+          font-weight: bold;
+          letter-spacing: -2px;
+          color: var(--clr-adif-200);
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); // improves readability
+                
+        }
+
+        .banner-callout {
+            font-size: 1.5rem;
+            letter-spacing: -.5px;
+            font-style: italic;
+            min-height: max-content;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); // improves readability
+                
+        }
+
+        .banner-links {
+            display: flex;
+            gap: 1.5em;
+
+            a:first-child{
+                @include button-read-more-link-anchor;
+                    
+            }
+
+            a:last-child{
+                @include main-read-more-link-anchor(var(--clr-adif-100),var(--clr-adifdark-100),var(--clr-adif-300),var(--clr-adiflight-100));   
+            }
+ 
+        }
+
+      }
+    }
+  }
+}
+
+
+.block.block-views.block-views-blockwhat-is-adif-block-1{
+
+    padding-top: 3em;
+
+    h2.block__title{
+        font-size: 3rem;
+        font-weight: bold;
+        letter-spacing: -2px;
+        color: var(--clr-adif-400);
+        font-family: var(--primary-font);
+        letter-spacing: -1px;
+        margin-bottom: 1em;
+    }
+
+    .view-what-is-adif{
+
+
+        &.threesolutions{
+            .view-content{
+                display: flex;
+                justify-content: space-between;
+
+                .solutionpoints{
+
+                    background: var(--clr-bg-300);
+                    padding: 2em;
+                    
+                    @include animate-on-scroll;
+
+                    &.col-md-4{
+                        width: calc(33.33333333% - 1em);
+                    }
+
+                    &:nth-child(1){
+                        .adif-icon{
+                            circle{
+                                fill:var(--clr-adif-100);
+                            }
+                        }
+                    }
+
+                    &:nth-child(2){
+                        .adif-icon{
+                            path:nth-child(1){
+                                fill:var(--clr-adif-400);
+                            }
+
+                            path:nth-child(2){
+                                fill:var(--clr-adif-100);
+                            }
+
+                            path:nth-child(3){
+                                fill:var(--clr-adif-200);
+                            }
+                        }                       
+                    }
+
+                    &:nth-child(3){
+                        .adif-icon{
+                            path{
+                                fill: var(--clr-adif-100);
+
+                                &.table{
+                                    fill: var(--clr-adif-200);
+                                }
+                            }
+
+                        }                       
+                    }
+
+
+                    .adif-name{
+                        text-transform: none;
+                        font-size: 1.5rem;
+                        font-weight: bold;
+                    }
+
+                    .adif-description{
+                    font-size: .85rem;
+                }
+
+                }
+            }
+        }
+
+
+        .view-content{
+
+          .challenge.views-row{
+                display: flex;
+                gap: 2em;
+
+                .challenge-images{
+                    display: flex;
+                    flex: 1 1 40%;
+
+                    img{
+                        width: 100%;
+                        height: auto;
+                        object-fit: contain;
+                    }
+                }
+
+                .challenge-detail{
+                    flex: 1 1 60%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    padding: 1em;
+
+                }
+
+                .adif-name{
+                    text-transform: uppercase;
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                }
+
+                .adif-subtitle{
+                    font-size: 3rem;
+                    font-weight: bold;
+                    letter-spacing: -2px;
+                    color: var(--clr-adif-300);
+                    line-height: 1.2;
+                    padding-bottom: 1.5rem;
+                }
+
+                .adif-description{
+                    font-size: 1.1rem;
+                }
+            }
+
+            .solution.views-row{
+
+                display: flex;
+                flex-direction: column;
+                align-items: end;
+                padding: 3em 0;
+
+                .adif-name{
+                    text-transform: uppercase;
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                }
+
+                .adif-subtitle{
+                    font-size: 3rem;
+                    font-weight: bold;
+                    letter-spacing: -2px;
+                    color: var(--clr-secondary-300);
+                    line-height: 1.2;
+                }
+
+                .adif-description{
+                    font-size: 1.25rem;
+                }
+            }
+        }
+    }
+}
+
+
+.block-views-blockwhat-is-adif-block-2{
+    display:flex;
+    flex-direction: column;
+    background: var(--clr-adif-100);
+    border-radius: 1em;
+
+    h2.block__title{
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--clr-adifdark-100);
+        text-align: left;
+        padding: 1em 1em 0;
+    }
+
+    .view-what-is-adif{
+        .view-content{
+            display: flex;
+            flex-direction: column;
+
+            .views-row,.values{
+                //flex: 0 0 calc(50%); /* 2 per row, minus gap */
+                position: relative;
+                padding: 1em;
+
+                @include animate-on-scroll-left;
+
+                .adif-name{
+                    font-size: 1.25rem;
+                    font-weight: bold;
+                    color: var(--clr-adifdark-100);
+                }
+
+                .adif-description{
+                    font-size: .9rem;
+                    color: var(--clr-adifdark-100);
+                }
+            }
+        }
+    }
+}
+
+
+.block-views-blockwhat-is-adif-block-3{
+ h2.block__title{
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--clr-adif-100);
+        text-align: right;
+    }
+
+    .view-what-is-adif{
+
+        ol,ul{
+                counter-reset: item;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+
+                li{
+                    counter-increment: item;
+                    position: relative;
+                    padding-left: 2em; /* space for overlap */
+                    z-index: 1;
+
+                    &::before {
+                        content: counter(item, decimal-leading-zero);
+                        position: absolute;
+                        left: 30%;
+                        top: -10%;
+                        transform: translate(-10%,30%); /* vertically center */
+                        font-size: 4rem;             /* make it BIGGER */
+                        font-weight: bold;
+                        color: rgba(255, 255, 255, 0.3);    /* opacity 0.5 */
+                        line-height: 1;
+                        z-index: 0;
+                    }
+                }
+            }
+
+
+        .view-content{
+
+            .main-stages{
+                display: flex;
+                flex-direction: column;
+                gap: 2em;
+            }
+            .views-row,.stages-row{
+                padding: 1em;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+
+                @include animate-on-scroll-right;
+
+                .adif-name{
+                    font-size: 1.25rem;
+                    font-weight: bold;
+                    color: var(--clr-bg-300);
+                }
+
+                .adif-subtitle{
+                    text-transform: uppercase;
+                    font-size: .9rem;
+                    color: var(--clr-bg-400);
+                }
+
+                .adif-description{
+                    font-size: .9rem;
+                    color: var(--clr-bg-400);
+                    font-style: italic;
+                    text-align: right;
+                }
+            }
+        }
+    }
+}
+
+
+.block-views-blockfeatured-event-block-1{
+    padding-top: 3em;
+
+    h2.block__title{
+        font-size: 3rem;
+        font-weight: bold;
+        letter-spacing: -2px;
+        color: var(--clr-adif-400);
+        font-family: var(--primary-font);
+        letter-spacing: -1px;
+        margin-bottom: .5em;
+        text-align: left;
+    }
+
+    .view-featured-event{
+        .view-content{
+            .views-row{
+                display: flex;
+                flex-direction: column;
+                gap: 2em;
+                .fetured-event-detail{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1em;
+
+
+                    
+
+
+                        .fetured-event-subtitle{
+                            font-size: 1.25rem;
+                            color: var(--clr-adif-200);
+                            font-style: italic;
+                        }
+
+                        .fetured-event-date{
+                            text-transform: uppercase;
+                            font-size: .9rem;
+                            font-weight: bold;
+                            //color: var(--clr-bg-400);
+                        }
+
+                        .fetured-event-location{
+                            text-transform: uppercase;
+                            font-size: .9rem;
+                            font-weight: bold;
+                            //color: var(--clr-bg-400);
+                        }
+                
+
+                        .fetured-event-link{
+                            display: flex;
+                            align-items: flex-end;
+                            a{
+                                @include main-read-more-link-anchor(var(--clr-adif-100),var(--clr-adifdark-100),var(--clr-adif-300),var(--clr-adiflight-100));   
+                            }
+                        }
+                    
+                }
+            }
+        }
+    }
+
+}
+
+.view-adif-overview-cards{
+
+   .view-content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+
+        .views-row {
+            width: calc(50% - 1rem);
+            position: relative;
+            padding: 1em;
+            border-radius: .5em;
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+
+            @include animate-on-scroll;
+
+            .overview-title{
+                font-size: .9rem;
+                font-weight: bold;
+            }
+
+            .overview-text{
+                font-size: .9rem;
+            }
+
+            &:nth-child(1) {
+                transform: translateY(3em);
+                background: var(--clr-adifdark-100);
+                color: var(--clr-adiflight-100);
+
+                .overview-title{
+                    color: var(--clr-adif-100);
+                }
+            }
+
+            &:nth-child(2) {
+                transform: translateY(0em);
+                color: var(--clr-adiflight-200);
+                background: var(--clr-adifdark-200);
+                 .overview-title{
+                    color: var(--clr-adif-200);
+                }
+            }
+
+            &:nth-child(3) {
+                transform: translateY(3em);
+                color: var(--clr-adiflight-300);
+                background: var(--clr-adifdark-300);
+                 .overview-title{
+                    color: var(--clr-adif-300);
+                }
+            }
+
+            &:nth-child(4) {
+                transform: translateY(0);
+                color: var(--clr-adiflight-400);
+                background: var(--clr-adifdark-400);
+
+                 .overview-title{
+                    color: var(--clr-adif-400);
+                }
+            }
+        }
+
+
+        
+    }
+}
+
+.view-call-to-action{
+    background: var(--clr-adifdark-200);
+    padding: 2em;
+    border-radius: 1em;
+
+    .view-content{
+        .views-row{
+            .call-to-action-content{
+                
+
+                .title{
+                    font-size: 2rem;
+                    font-weight: bold;
+                    letter-spacing: -2px;
+                    color: var(--clr-adif-200);
+                    font-family: var(--primary-font);
+                    letter-spacing: -1px;
+                    margin-bottom: 0;
+                }
+
+                .detail{
+                    display: flex;
+                    justify-content: space-between;
+
+                    .callout{
+                        font-size: 1.1rem;
+                        letter-spacing: -.5px;
+                        font-style: italic;
+                        color: var(--clr-adiflight-200);
+                        flex: 1 1 60%;
+                    }
+
+                    .links{
+                            flex: 1 1 40%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: end;
+
+                        a{
+                            @include main-read-more-link-anchor(var(--clr-adif-200),var(--clr-adifdark-200),var(--clr-adiflight-200),var(--clr-adifdark-200));   
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.view-featured-webinars{
+    padding-bottom: 3em;
+
+
+.view-content {
+      
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2em;
+      padding: 20px;
+    }
+
+
+    .pre-event-row {
+      background: var(--clr-bg-400);
+      flex: 0 0 calc(33% - 20px);
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+
+      @include animate-on-scroll;
+    }
+
+    .pre-event-detail{
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+
+      .event-date{
+            display: flex;
+            gap: .25rem;
+            font-size: 1.25rem;
+            font-weight: bold;
+            min-width: max-content;
+        }
+
+        .event-detail{
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+
+            .title{
+                a{
+                    font-size: .95rem;
+                    font-weight: bold;
+                    letter-spacing: -1px;
+                    color: var(--clr-adifdark-100);
+
+                    &:hover{
+                        color: var(--clr-adif-100);
+                    }
+                }
+            }
+
+            .sub-title{
+                font-size: 1.15rem;
+                letter-spacing: -1px;
+                color: var(--clr-adifdark-200);
+            }
+
+            .locaton{
+                font-size: 1rem;
+                font-style: italic;
+            }
+        }
+    }
+
+
+    @media (max-width: 600px) {
+        .pre-event-detail {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .event-date {
+            flex-direction: row;
+            gap: .5rem;
+            min-width: auto;
+        }
+    }
+}

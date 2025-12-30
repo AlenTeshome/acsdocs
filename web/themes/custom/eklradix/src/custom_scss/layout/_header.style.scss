@@ -1,0 +1,102 @@
+@use '../abstracts' as *;
+
+nav.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background: transparent;
+    display: flex;
+    width: 100%;
+
+    @media (min-width: 992px) {
+    .container-lg, .container-md, .container-sm, .container {
+            max-width: 100%;
+        }
+    }
+
+    &.sticky{
+        background: var(--clr-adifdark-100);
+        position: sticky;
+        animation: dropDown 0.45s ease-out forwards;
+    }
+
+    ul.nav.navbar-nav{
+      gap: 1em;
+      padding-left: 3em;
+        li{
+            a{
+                font-weight: 1rem;
+                letter-spacing: -.04em;
+                color: var(--clr-bg-300);
+                font-weight: bold;
+                transition: color 0.3s ease;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); // improves readability
+                
+                &.nav-link.active.is-active{
+                    color: var(--clr-adif-100);
+                }
+            }
+        }
+    }
+}
+
+
+.block-system-menu-blockcall-to-action-menu{
+  ul{
+    li.nav-item{
+      a{
+         @include main-read-more-link-anchor(var(--clr-adif-100),var(--clr-adifdark-100),var(--clr-adifdark-200),var(--clr-adiflight-100));   
+      }
+    }
+  }
+}
+
+
+.landing-page,.path-node{
+  .layout.row.no-gutters{
+    .col-12{
+      position: relative;
+
+      .block-system-breadcrumb-block{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 2;
+        
+        nav{
+              background: var(--clr-bg-300);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              padding: 1em;
+              min-width: 300px;
+              border-radius: 1.5em 0 0 0;
+
+              ol{
+                margin: 0;
+                padding: 0;
+                list-style: none;
+              }
+        }
+      }
+    }
+
+  }
+}
+
+
+
+
+
+
+@keyframes dropDown {
+  0% {
+    transform: translateY(-3rem); /* start above */
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

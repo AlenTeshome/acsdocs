@@ -1,0 +1,10 @@
+@use '../abstracts' as *;
+a:not([class]) {
+   color: var(--clr-primary-300);
+    text-decoration: none !important;
+    @include list-item-title;
+
+    &:hover{
+        color: var(--clr-secondary-500);
+    }
+}

@@ -1,0 +1,104 @@
+ @use '../abstracts' as *;
+
+[class*="node-type--"] {
+
+    [class*="block-field-blocknode"][class$="title"]  {
+
+        @include list-item-title;
+        font-size: clamp(2.25rem, 5vw, 1.75rem);
+        line-height: clamp(3rem, 5vw, 2.5rem);
+        color: var(--bs-heading-color);
+    }
+
+    .herosection{
+        margin-bottom: 3em ;
+    }
+
+
+    .side-content{
+        display: flex;
+        flex-direction: column;
+        gap: 2.5em;
+
+        h2.block__title{
+            font-size: 1.15rem;
+            color: var(--bs-heading-color);
+            text-align: left;
+            margin-bottom: 1em;
+        }
+
+        .block-views-blocksocial-media-links-block-1{
+            .view-social-media-links{
+                .view-content{
+                    display: flex;
+                    gap: 2em;
+                }
+            }
+        }
+
+        
+    }
+
+
+    .relateditems{
+        padding: 3em 0;
+        margin: 3em 0;
+
+        border-top: solid 2px var(--bs-gray-900);
+        border-bottom: solid 2px var(--bs-gray-900);
+
+        .field--items,.field--item{
+
+            .field__label{
+                @include list-item-title;
+                font-size: .95rem;
+                color: var(--bs-heading-color);
+                margin-bottom: 1em;
+            }
+
+
+            .field__items,.field__item{
+                display: flex;
+                flex-direction: column;
+                gap: 1em;
+
+                a{
+
+                    font-size: .95rem;
+                    font-weight: normal;
+
+                }
+            }
+
+        }
+    }
+
+    .main-content{
+            padding: 0 3em;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5em;
+        
+        .field--name-field-sub-title{
+            @include list-item-title;
+            font-weight: normal;
+            font-style: italic;
+            color: var(--clr-secondary-400);
+        }
+
+        .field--name-field-image{
+            img{
+                object-fit: contain;
+                width: 100%;
+            }
+        }
+        .field--name-field-date{
+
+            @include list-item-title;
+        }
+
+        .field--name-body{
+            text-align: justify;
+        }
+    }
+}
